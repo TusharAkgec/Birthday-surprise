@@ -1057,7 +1057,7 @@ audio {
 	100% {
 		-ms-transform:translate(0px,0px);
 	}
-}o
+}
 @keyframes bannar_come {
 	0%{
 		transform:translate(0px,-1000px);
@@ -1311,11 +1311,33 @@ audio {
         background-color: #466baf;
     }
 
-
-
-    /*controlling tablet width*/
-    /*@media only screen and (max-width: 720px){
-    	.container {
-    		-webkit-transform: scale(0.9);
-    	}
-    }*/
+	#gift-video {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		margin-top: 50px;
+		padding: 30px 15px;
+		background: linear-gradient(135deg, #ffe4e1 0%, #fff0f5 100%);
+		border: 5px dashed #f170a6;
+		border-radius: 20px;
+		box-shadow: 0 0 25px rgba(241, 112, 166, 0.4);
+		animation: fadeInGift 1s ease-in-out;
+	}
+	
+	#gift-video video {
+		max-width: 375px;
+		border-radius: 15px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		transition: transform 0.3s ease;
+	}
+	
+	#gift-video video:hover {
+		transform: scale(1.02);
+	}
+	
+	/* Optional animation when video section appears */
+	@keyframes fadeInGift {
+		from { opacity: 0; transform: translateY(30px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+	

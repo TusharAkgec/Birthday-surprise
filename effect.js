@@ -194,16 +194,19 @@ $('document').ready(function(){
 	$('#story').click(function(){
 		$(this).fadeOut('slow');
 		const audio = $('.song')[0];
+	
+		// Fade out background music
 		let fadeOut = setInterval(() => {
-	if (audio.volume > 0.05) {
-		audio.volume -= 0.05;
-	} else {
-		audio.volume = 0;
-		audio.pause();
-		clearInterval(fadeOut);
-	}
+			if (audio.volume > 0.05) {
+				audio.volume -= 0.05;
+			} else {
+				audio.volume = 0;
+				audio.pause();
+				clearInterval(fadeOut);
+			}
 		}, 100);
-
+	
+		// Hide cake and show messages one by one
 		$('.cake').fadeOut('fast').promise().done(function(){
 			$('.message').fadeIn('slow', function () {
 				let i = 1;
@@ -212,23 +215,15 @@ $('document').ready(function(){
 						i++;
 						$("p:nth-child(" + i + ")").fadeIn('slow').delay(1500).promise().done(function() {
 							if (i === $(".message p").length) {
+								// All messages done
 								$('.message').fadeOut('fast', function () {
-									$('#gift-video').fadeIn('slow');
-									$('#gift-video video').on('ended', function () {
-	const audio = $('.song')[0];
-	audio.volume = 0;
-	audio.play();
-
-	let fadeIn = setInterval(() => {
-		if (audio.volume < 0.95) {
-			audio.volume += 0.05;
-		} else {
-			audio.volume = 1;
-			clearInterval(fadeIn);
-		}
-	}, 100);
-});
-
+									$('#gift-video').fadeIn('slow', function () {
+										// Play video after all fades
+										const video = $('#gift-video video')[0];
+										video.play().catch(error => {
+											console.warn('Autoplay failed:', error);
+										});
+									});
 								});
 							} else {
 								msgLoop(i);
@@ -241,4 +236,5 @@ $('document').ready(function(){
 		});
 	});
 	
+		
 });
