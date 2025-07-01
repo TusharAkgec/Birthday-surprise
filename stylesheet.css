@@ -1315,7 +1315,7 @@ audio {
 		display: none;
 		justify-content: center;
 		align-items: center;
-		margin-top: 50px;
+		margin-top: 200px;
 		padding: 30px 15px;
 		background: linear-gradient(135deg, #ffe4e1 0%, #fff0f5 100%);
 		border: 5px dashed #f170a6;
@@ -1324,20 +1324,40 @@ audio {
 		animation: fadeInGift 1s ease-in-out;
 	}
 	
+	/* Video styling */
 	#gift-video video {
-		max-width: 375px;
+		max-width: 1600px;
+		width: 100%;
 		border-radius: 15px;
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 		transition: transform 0.3s ease;
 	}
 	
+	/* Hover effect on video */
 	#gift-video video:hover {
 		transform: scale(1.02);
 	}
 	
-	/* Optional animation when video section appears */
+	/* Animation for video container */
 	@keyframes fadeInGift {
 		from { opacity: 0; transform: translateY(30px); }
 		to { opacity: 1; transform: translateY(0); }
 	}
+	
+	/* Mobile-specific styling */
+	@media (max-width: 768px) {
+		#gift-video {
+			margin-top: 300px;
+			padding: 40px 20px;
+		}
+	
+		#gift-video video {
+			width: 100%;
+			max-width: none;
+			height: auto;
+			border-radius: 20px;
+		}
+	}
+	
+	
 	
