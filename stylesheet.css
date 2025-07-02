@@ -1315,7 +1315,7 @@ audio {
 		display: none;
 		justify-content: center;
 		align-items: center;
-		margin-top: 200px;
+		margin-top: 120px;
 		padding: 30px 15px;
 		background: linear-gradient(135deg, #ffe4e1 0%, #fff0f5 100%);
 		border: 5px dashed #f170a6;
@@ -1347,7 +1347,7 @@ audio {
 	/* Mobile-specific styling */
 	@media (max-width: 768px) {
 		#gift-video {
-			margin-top: 300px;
+			margin-top: 180px;
 			padding: 40px 20px;
 		}
 	
